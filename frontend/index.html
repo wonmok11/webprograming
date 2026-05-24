@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중고 장터 - 홈</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #222222;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- 분리된 헤더 스타일 배치 --- */
+        #header-placeholder {
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+        }
+
+        .header-content .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #111111;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-right .username {
+            font-size: 14px;
+            color: #555555;
+            margin-right: 5px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-black {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .btn-outline {
+            background-color: #ffffff;
+            color: #333333;
+            border: 1px solid #dddddd;
+        }
+
+        /* --- 메인 컨텐츠 영역 --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 40px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #111111;
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-list {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 1px solid #dddddd;
+            background-color: #ffffff;
+            color: #333333;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .category-btn.active {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border-color: #1a1a1a;
+            font-weight: bold;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .product-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: #e8e6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #777777;
+            font-size: 14px;
+        }
+
+        .product-info {
+            padding: 16px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #111111;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: #888888;
+            margin-bottom: 20px;
+        }
+
+        .product-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #111111;
+        }
+
+        .status-badge {
+            font-size: 11px;
+            font-weight: bold;
+            color: #00b894;
+            border: 1px solid #00b894;
+            padding: 3px 10px;
+            border-radius: 12px;
+            background-color: #f0fdf4;
+        }
+
+        .product-meta {
+            font-size: 12px;
+            color: #999999;
+        }
+
+        /* --- 분리된 푸터 스타일 배치 --- */
+        .footer-content {
+            text-align: center;
+            padding: 25px;
+            background: #1a1a1a;
+            color: #f8f9fa;
+            margin-top: 60px;
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main class="container">
+    <section class="category-section">
+        <h2 class="section-title">카테고리</h2>
+        <div class="category-list">
+            <button class="category-btn active">전체</button>
+            <button class="category-btn">전공책</button>
+            <button class="category-btn">비품</button>
+            <button class="category-btn">전자기기</button>
+            <button class="category-btn">의류</button>
+            <button class="category-btn">기타</button>
+        </div>
+    </section>
+
+    <section class="product-section">
+        <h2 class="section-title">전체 상품</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img">이미지 없음</div>
+                <div class="product-info">
+                    <div class="product-title">E ㅊ</div>
+                    <div class="product-desc">fgvsdf</div>
+                    <div class="product-price-row">
+                        <div class="product-price">₩40,000</div>
+                        <div class="status-badge">판매중</div>
+                    </div>
+                    <div class="product-meta">전자기기</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="/js/load.js"></script>
+</body>
+</html>
