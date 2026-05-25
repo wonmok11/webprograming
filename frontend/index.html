@@ -3,202 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>중고 장터 - 홈</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        body {
-            background-color: #ffffff;
-            color: #222222;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* --- 분리된 헤더 스타일 배치 --- */
-        #header-placeholder {
-            border-bottom: 1px solid #eeeeee;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-        }
-
-        .header-content .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #111111;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .header-right .username {
-            font-size: 14px;
-            color: #555555;
-            margin-right: 5px;
-        }
-
-        .btn {
-            padding: 8px 16px;
-            font-size: 13px;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-black {
-            background-color: #1a1a1a;
-            color: #ffffff;
-        }
-
-        .btn-outline {
-            background-color: #ffffff;
-            color: #333333;
-            border: 1px solid #dddddd;
-        }
-
-        /* --- 메인 컨텐츠 영역 --- */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 40px;
-            flex: 1;
-            width: 100%;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #111111;
-        }
-
-        .category-section {
-            margin-bottom: 50px;
-        }
-
-        .category-list {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .category-btn {
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: 1px solid #dddddd;
-            background-color: #ffffff;
-            color: #333333;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .category-btn.active {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            border-color: #1a1a1a;
-            font-weight: bold;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .product-card {
-            border: 1px solid #eaeaea;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #ffffff;
-        }
-
-        .product-img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background-color: #e8e6e6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #777777;
-            font-size: 14px;
-        }
-
-        .product-info {
-            padding: 16px;
-        }
-
-        .product-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #111111;
-        }
-
-        .product-desc {
-            font-size: 13px;
-            color: #888888;
-            margin-bottom: 20px;
-        }
-
-        .product-price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .product-price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #111111;
-        }
-
-        .status-badge {
-            font-size: 11px;
-            font-weight: bold;
-            color: #00b894;
-            border: 1px solid #00b894;
-            padding: 3px 10px;
-            border-radius: 12px;
-            background-color: #f0fdf4;
-        }
-
-        .product-meta {
-            font-size: 12px;
-            color: #999999;
-        }
-
-        /* --- 분리된 푸터 스타일 배치 --- */
-        .footer-content {
-            text-align: center;
-            padding: 25px;
-            background: #1a1a1a;
-            color: #f8f9fa;
-            margin-top: 60px;
-            border-top: 1px solid #dee2e6;
-        }
-    </style>
+    <title>중고 장터</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-<div id="header-placeholder"></div>
+<header id="header-placeholder"></header>
 
 <main class="container">
-    <section class="category-section">
+    <section id="view-home" class="page-section active-section">
         <h2 class="section-title">카테고리</h2>
         <div class="category-list">
             <button class="category-btn active">전체</button>
@@ -208,29 +21,62 @@
             <button class="category-btn">의류</button>
             <button class="category-btn">기타</button>
         </div>
+        <h2 class="section-title">전체 상품</h2>
+        <div class="product-grid" id="product-list-container"></div>
     </section>
 
-    <section class="product-section">
-        <h2 class="section-title">전체 상품</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img">이미지 없음</div>
-                <div class="product-info">
-                    <div class="product-title">E ㅊ</div>
-                    <div class="product-desc">fgvsdf</div>
-                    <div class="product-price-row">
-                        <div class="product-price">₩40,000</div>
-                        <div class="status-badge">판매중</div>
-                    </div>
-                    <div class="product-meta">전자기기</div>
+    <section id="view-create" class="page-section">
+        <div class="form-wrapper">
+            <h2 class="section-title" style="text-align: center;">상품 등록하기</h2>
+            <form id="create-form" onsubmit="handleCreate(event)">
+                <div class="form-group"><label>상품명</label><input type="text" id="p-title" class="form-control" required></div>
+                <div class="form-group"><label>카테고리</label><select id="p-category" class="form-control"><option>전공책</option><option>전자기기</option><option>의류</option></select></div>
+                <div class="form-group"><label>가격 (원)</label><input type="number" id="p-price" class="form-control" required></div>
+
+                <div class="form-group"><label>상품 이미지</label><input type="file" id="p-image" class="form-control" accept="image/*"></div>
+
+                <div class="form-group"><label>설명</label><textarea id="p-desc" class="form-control" rows="4" required></textarea></div>
+                <button type="submit" class="btn btn-black" style="width: 100%;">등록 완료</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="view-login" class="page-section">
+        <div class="form-wrapper">
+            <h2 class="section-title" style="text-align: center;">로그인</h2>
+            <form id="login-form">
+                <div class="form-group"><label>이메일</label><input type="email" id="l-email" class="form-control" required></div>
+                <div class="form-group"><label>비밀번호</label><input type="password" id="l-password" class="form-control" required></div>
+
+                <button type="button" class="btn btn-black" style="width: 100%; margin-top: 10px;" onclick="handleLogin(event)">로그인</button>
+
+                <div style="text-align: center; margin-top: 15px; font-size: 14px;">
+                    계정이 없으신가요? <span onclick="switchView('view-signup')" style="color: #007bff; cursor: pointer; text-decoration: underline;">회원가입하기</span>
                 </div>
-            </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="view-signup" class="page-section">
+        <div class="form-wrapper">
+            <h2 class="section-title" style="text-align: center;">회원가입</h2>
+            <form id="signup-form">
+                <div class="form-group"><label>이메일</label><input type="email" id="s-email" class="form-control" required></div>
+                <div class="form-group"><label>비밀번호</label><input type="password" id="s-password" class="form-control" required></div>
+                <div class="form-group"><label>닉네임</label><input type="text" id="s-nickname" class="form-control" placeholder="사용할 닉네임을 입력하세요" required></div>
+
+                <button type="button" class="btn btn-black" style="width: 100%; margin-top: 10px;" onclick="handleSignup(event)">회원가입 완료</button>
+
+                <div style="text-align: center; margin-top: 15px; font-size: 14px;">
+                    이미 계정이 있으신가요? <span onclick="switchView('view-login')" style="color: #007bff; cursor: pointer; text-decoration: underline;">로그인하기</span>
+                </div>
+            </form>
         </div>
     </section>
 </main>
 
-<div id="footer-placeholder"></div>
+<footer id="footer-placeholder"></footer>
 
-<script src="/js/load.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>

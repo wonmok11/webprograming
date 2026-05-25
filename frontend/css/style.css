@@ -1,0 +1,38 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
+body { background-color: #ffffff; color: #222222; display: flex; flex-direction: column; min-height: 100vh; }
+
+#header-placeholder { border-bottom: 1px solid #eeeeee; }
+.header-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; }
+.header-content .logo { font-size: 24px; font-weight: bold; cursor: pointer; }
+.header-right { display: flex; align-items: center; gap: 15px; }
+.username { font-size: 14px; color: #555555; }
+
+.btn { padding: 8px 16px; font-size: 13px; font-weight: 600; border-radius: 4px; cursor: pointer; border: none; }
+.btn-black { background-color: #1a1a1a; color: #ffffff; }
+.btn-outline { background-color: #ffffff; color: #333333; border: 1px solid #dddddd; }
+
+.container { max-width: 1200px; margin: 40px auto; padding: 0 40px; flex: 1; width: 100%; }
+.page-section { display: none; }
+.active-section { display: block; }
+
+.section-title { font-size: 18px; font-weight: bold; margin-bottom: 20px; }
+.category-list { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 50px;}
+.category-btn { padding: 8px 20px; border-radius: 20px; border: 1px solid #dddddd; background-color: #ffffff; font-size: 14px; cursor: pointer; }
+.category-btn.active { background-color: #1a1a1a; color: #ffffff; border-color: #1a1a1a; }
+
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.product-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; }
+.product-img { width: 100%; aspect-ratio: 1/1; background-color: #e8e6e6; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #777;}
+.product-info { padding: 16px; }
+.product-title { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
+.product-desc { font-size: 13px; color: #888; margin-bottom: 20px; }
+.product-price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.product-price { font-size: 18px; font-weight: bold; }
+.status-badge { font-size: 11px; font-weight: bold; color: #00b894; border: 1px solid #00b894; padding: 3px 10px; border-radius: 12px; background-color: #f0fdf4; }
+
+.form-wrapper { max-width: 500px; margin: 0 auto; border: 1px solid #eee; padding: 40px; border-radius: 8px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; }
+.form-control { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+
+.footer-content { text-align: center; padding: 25px; background: #1a1a1a; color: #f8f9fa; margin-top: 60px; }

@@ -1,8 +1,9 @@
 <div class="header-content">
-    <div class="logo">중고 장터</div>
+    <div class="logo" onclick="switchView('view-home')">중고 장터</div>
     <div class="header-right">
-        <span class="username">강냉이</span>
-        <button class="btn btn-black">상품 등록</button>
-        <button class="btn btn-outline">마이페이지</button>
+        <span class="username" id="display-username">게스트</span>
+        <button class="btn btn-black" id="btn-create" style="display: none;" onclick="switchView('view-create')">상품 등록</button>
+        <button class="btn btn-outline" id="btn-login" onclick="switchView('view-login')">로그인</button>
+        <button class="btn btn-outline" id="btn-logout" style="display: none;" onclick="handleLogout()">로그아웃</button>
     </div>
 </div>
