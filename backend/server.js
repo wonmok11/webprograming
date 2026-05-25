@@ -16,7 +16,28 @@ const products = [
 
 // ===== 상품 목록 조회 API =====
 app.get('/api/products', (req, res) => {
-    res.json(products);
+    // 쿼리스트링에서 조건 꺼내기
+    const category = req.query.category;
+    const sort = req.query.sort;
+
+    // 원본을 건드리지 않게 복사본으로 작업
+    let result = [...products];
+
+    // 1. 카테고리 필터링
+    if (category && category !== '전체') {
+        result = result.filter(product => product.category === category);
+    }
+
+    // 2. 정렬
+    if (sort === 'price-low') {
+        result.sort((a, b) => a.price - b.price);
+    } else if (sort === 'price-high') {
+        result.sort((a, b) => b.price - a.price);
+    } else if (sort === 'latest') {
+        result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    }
+
+    res.json(result);
 });
 
 app.get('/', (req, res) => {
