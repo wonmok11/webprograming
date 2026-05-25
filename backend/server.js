@@ -1,26 +1,25 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-require('dotenv').config();
+const express = require("express");
+const session = require("express-session");
+const authRouter = require("./routes/auth");
+const commentsRouter = require("./routes/comments");
+const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-// 미들웨어 세팅
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5500",
+    credentials: true
+}));
+
 app.use(express.json());
 
-// MongoDB Atlas 연결
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('MongoDB Atlas Connected...'))
-    .catch((err) => console.log('MongoDB Connection Error: ', err));
+app.use(session({
+    secret: "secret-key",
+    resave: false,
+    saveUninitialized: true,
+}));
 
-// 기본 라우트 테스트
-app.get('/', (req, res) => {
-    res.send('Backend Server is Running!');
-});
+app.use("/api", authRouter);
+app.use("/api", commentsRouter);
 
-// 서버 실행
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+app.listen(3000, () => console.log("Server running on 3000"));
